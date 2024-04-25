@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Homepage</title>
+  </head>
+  <style></style>
+  <body>
+    <div class="container">
+      <nav id="navbar">
+        <div class="logo">
+          <a href="#home"><img src="/landinglogo.png" /></a>
+        </div>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#download">Download</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#">Login</a></li>
+        </ul>
+      </nav>
+      <section id="home" class="home">
+        <!--<h1>Home</h1>-->
+        <div class="hero">
+          <h2>Refine your Calls, Elevate your Service</h2>
+          <p>
+            Discover the future of communication in the BPO industry! 
+            Join us in embracing AI and voice recognition technology 
+            to revolutionize evaluating calls. Enhance accuracy, 
+            efficiency, and customer satisfaction effortlessly. Be at 
+            the forefront—empower your operations and elevate your 
+            service with cutting-edge technology. Start your journey 
+            with us today and transform your business!
+          </p>
+          <div class="buttons">
+            <a href="#" class="join">Join Now</a>
+            <a href="#" class="learn">Learn More</a>
+          </div>
+        </div>
+        <div class="img">
+          <img src="https://www.codingnepalweb.com/demos/create-responsive-website-html-css/hero-bg.png" alt="hero image" />
+        </div>
+
+        
+      </section>
+      <section id="about" class="about-us">
+        <!--<h1>About</h1>-->
+        <img src="landinglogo.png" class="pic">
+        <h2>About Us</h2>
+        <div class="text">
+          <p>We specialize in transforming call evaluation in the BPO sector through advanced voice recognition, AI, and the cutting-edge BERT algorithm. Our innovative system is designed to enhance the precision and efficiency of call analysis, ensuring superior customer service and insightful data analysis. With our technology, organizations can automatically assess call quality, understand customer sentiments, and improve agent performance. Committed to excellence and innovation, we empower BPOs to exceed customer expectations and drive success in an ever-evolving market.</p>
+        </div>
+        </section>
+      <section id="download" class="download">
+        <h1>Download</h1>
+      </section>
+      <section id="contact" class="contact">
+        <h1>Contact</h1>
+      </section>
+    </div>
+    <div id="scroll-indicator" class="scroll-indicator">↑</div>
+    <script>
+      var prevScrollpos = window.pageYOffset;
+      window.onscroll = function () {
+        var currentScrollPos = window.pageYOffset;
+        if (prevScrollpos > currentScrollPos) {
+          document.getElementById("navbar").style.top = "0";
+        } else {
+          document.getElementById("navbar").style.top = "-58px";
+        }
+        prevScrollpos = currentScrollPos;
+      };
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const links = document.querySelectorAll('a[href^="#"]');
+
+        links.forEach((link) => {
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute("href").substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+              const yOffset = 0;
+              const y =
+                targetElement.getBoundingClientRect().top +
+                window.pageYOffset +
+                yOffset;
+
+              window.scrollTo({ top: y, behavior: "smooth" });
+            }
+          });
+        });
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const scrollIndicator = document.getElementById("scroll-indicator");
+        let lastScrollTop = 0;
+
+        window.addEventListener("scroll", function () {
+          const scrollTop =
+            window.pageYOffset || document.documentElement.scrollTop;
+
+          if (scrollTop > lastScrollTop) {
+            scrollIndicator.classList.add("show");
+          } else {
+            scrollIndicator.classList.remove("show");
+          }
+
+          lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        });
+
+        scrollIndicator.addEventListener("click", function () {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      });
+    </script>
+    <script src="index.js"></script>
+  </body>
+</html>
